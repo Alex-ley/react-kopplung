@@ -9,7 +9,7 @@ function ReactKopplung(){
   }
   this._rootNode = null;
   this.setRoot = function(el){
-    this._node = el;
+    this._node = (el == '<>') ? React.Fragment: el;
     this._rootNode = this;
     return this;
   }
@@ -22,7 +22,7 @@ function ReactKopplung(){
   }
   this._node = '';
   this.setNode = function(el){
-    this._node = (el == '<>') ? React.Fragment: el;
+    this._node = el;
     return this;
   }
   this._props = {};
