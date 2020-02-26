@@ -45,6 +45,18 @@ function ReactKopplung(){
     this._children.push(childObj);
     return childObj;
   }
+  this.mapChildren = function(func){
+    const data = this._data;
+    for (let i = 0; i < data.length; i++){
+      func(data[i], i, this, data);
+    }
+    return this;
+  }
+  this._data = null;
+  this.data = function(val){
+    this._data = val;
+    return this;
+  }
   this._text = '';
   this.setText = function(val){
     this._text = val;
