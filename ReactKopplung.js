@@ -48,7 +48,7 @@ function ReactKopplung(){
   this.mapChildren = function(func){
     const data = this._data;
     for (let i = 0; i < data.length; i++){
-      func(data[i], i, this, data);
+      func(data[i], i, this, data, func); //func arg to allow recursive calls
     }
     return this;
   }
