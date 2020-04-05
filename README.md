@@ -3,15 +3,15 @@ Intended to be a lightweight API to allow users to create react apps without JSX
 
 For now you can use it like this, adding in the following script tag:
 
-```
+```js
 <script src="https://cdn.jsdelivr.net/gh/Alex-ley/react-kopplung@latest/ReactKopplung.js" />
 ```
 
 In conjunction with (following):
 
-```
+```js
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.12.0/umd/react.production.min.js" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.12.0/umd/react-dom.production.min.js />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.12.0/umd/react-dom.production.min.js" />
 ```
 
 This way, you can write react, without JSX, without babel and without webpack.
@@ -20,7 +20,7 @@ If we were to repeat a simple example from the react website on how to use the u
 
 Then we could re-write it with react-kopplung as (Demo: https://codepen.io/Alexander9111/pen/GRJrjpM):
 
-```
+```js
 function Example() {
   // Declare a new state variable, which we'll call "count"
   const [count, setCount] = React.useState(0);
@@ -32,12 +32,12 @@ function Example() {
   returnObj
     .setRoot('div') /* Or .setRoot('<>') for a fragment */
       .child('p')
-      .setText(`You clicked ${count} times`)
+        .setText(`You clicked ${count} times`)
     .parent()
-    .child('button')
-      .setText('Click Me')
-      .setProp('style', {background: '#ffc8c4'})
-      .setProp('onClick', handleClick);
+      .child('button')
+        .setText('Click Me')
+        .setProp('style', {background: '#ffc8c4'})
+        .setProp('onClick', handleClick);
 
   return returnObj.rootNode().render();
 }
